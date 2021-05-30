@@ -50,6 +50,7 @@ const DOMstuff = (function () {
     element.setAttribute("id", "error");
     element.innerText = message;
     element.style.color = "red";
+    element.style.position = "absolute";
     parent.appendChild(element);
   };
 
