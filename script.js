@@ -43,6 +43,7 @@ const DOMstuff = (function () {
   };
 
   const createErrorMessage = function (message) {
+    checkIfErrorExists()
     const input = document.querySelector("#input");
     input.style.border = "3px solid red";
     const parent = document.querySelector(".search");
@@ -59,6 +60,11 @@ const DOMstuff = (function () {
     const error = document.getElementById("error");
     error.remove();
     input.style.border = "none";
+  }
+
+  const checkIfErrorExists = function (){
+    const error = document.getElementById("error");
+    error && clearError()
   }
 
   return { getInput, validateInput, clearInput, createErrorMessage };
