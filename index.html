@@ -3,41 +3,84 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Shortly URL shortening API Challenge</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins" rel="stylesheet">
+  <title>Shortly</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="./script.js"></script>
 </head>
+
 <body>
+  <div class="wrapper">
+    <header class="header">
+      <a href="#" class="logo"><img src="./images/logo.svg" alt=""></a>
+      <nav class="nav">
+        <ul class="nav-left">
+          <li><a href="#" class="link">Features</a></li>
+          <li><a href="#" class="link">Pricing</a></li>
+          <li><a href="#" class="link">Resources</a></li>
+        </ul>
+        <ul class="nav-right">
+          <li><a href="#" class="login">Login</a></li>
+          <li><button class="sign-up__btn btn">Sign Up</button></li>
+        </ul>        
+      </nav>
+      <div class="hamburger-menu__btn">X</div>
+    </header>
 
-  Features
-  Pricing
-  Resources
-
-  Login
-  Sign Up
-
-  More than just shorter links
-
-  Build your brand’s recognition and get detailed insights 
-  on how your links are performing.
-
-  Get Started
+    <section class="hero">    
+        <div class="hero-left">
+          <h1 class="hero-headline">
+            More than just shorter links
+          </h1>
+          <p class="hero-text">
+            Build your brand’s recognition and get detailed insights 
+            on how your links are performing.
+          </p>
+          <button class="get-started__btn btn">
+            Get Started
+          </button>
+        </div>
+        <div class="hero-right"><img src="./images/illustration-working.svg" alt=""></div>
+    </section>
+    </div>
   
-  Shorten a link here...
 
-  Shorten It!
+    <div class="main">
+      <div class="wrapper">
+        <section class="search">
+          <div class="search-wrapper">
+            <input type="text" id="input" class="search__input" placeholder="Shorten a link here...">
+            <button id="input-btn" class="search__btn btn">Shorten It!</button>
+          </div>      
+        </section>
+      
+        <section class="information">
+          <div class="info-text">
+            <h2>Advanced Statistics</h2>
+            <p>Track how your links are performing across the web with our 
+              advanced statistics dashboard.</p>
+          </div>
+        </section>
+      </div>
+    </div>
+   
+  
+    <section class="get-started">
+  
+    </section>
+  
+    <footer class="footer">
+  
+    </footer>
+   
+ 
+  
+  
 
-  Advanced Statistics
+  
 
-  Track how your links are performing across the web with our 
-  advanced statistics dashboard.
+  
 
   Brand Recognition
 
