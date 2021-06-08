@@ -1,7 +1,3 @@
-const inputBtn = document.querySelector("#input-btn");
-
-inputBtn.addEventListener("click", generateHTML);
-
 function generateHTML() {
   const url = DOMstuff.getInput();
   const validated = DOMstuff.validateInput(url);
@@ -11,7 +7,13 @@ function generateHTML() {
       .then((res) => res.json())
       .then((data) => {
         if (data.ok === true) {
-          console.log(data.result.full_short_link2);
+          const resultContainer = document.querySelector(".results-wrapper");
+          const result = DOMstuff.createResult(
+            data.result.full_short_link2,
+            data.result.full_short_link2
+          );
+          resultContainer.appendChild(result);
+          //console.log(data.result.full_short_link2);
           DOMstuff.clearInput();
         } else {
           DOMstuff.createErrorMessage(data.error);
@@ -23,6 +25,9 @@ function generateHTML() {
 }
 
 const DOMstuff = (function () {
+  const inputBtn = document.querySelector("#input-btn");
+  inputBtn.addEventListener("click", generateHTML);
+
   const getInput = function () {
     return document.querySelector("#input").value;
   };
@@ -43,7 +48,7 @@ const DOMstuff = (function () {
   };
 
   const createErrorMessage = function (message) {
-    checkIfErrorExists()
+    checkIfErrorExists();
     const input = document.querySelector("#input");
     input.style.border = "3px solid red";
     const parent = document.querySelector(".search");
@@ -62,10 +67,34 @@ const DOMstuff = (function () {
     input.style.border = "none";
   }
 
-  const checkIfErrorExists = function (){
+  function checkIfErrorExists() {
     const error = document.getElementById("error");
-    error && clearError()
+    error && clearError();
   }
 
-  return { getInput, validateInput, clearInput, createErrorMessage };
+  const createResult = function (initial, result) {
+    const container = document.createElement("div");
+    container.className = "result";
+    container.innerHTML = `
+                        <div class="result-data">
+                          <div class="result-data__left">
+                            ${initial}
+                          </div>
+                          <div class="result-data__right">
+                            ${result}
+                          </div>
+                        </div>
+                        <button class="btn copy-btn">Copy</button>
+                      `;
+
+    return container;
+  };
+
+  return {
+    getInput,
+    validateInput,
+    clearInput,
+    createErrorMessage,
+    createResult,
+  };
 })();
